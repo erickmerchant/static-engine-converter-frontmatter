@@ -8,8 +8,6 @@ module.exports = function () {
 
         var content = page.content;
 
-        content += "\n";
-
         content = content.split(delim);
 
         if(content.length > 1) {
