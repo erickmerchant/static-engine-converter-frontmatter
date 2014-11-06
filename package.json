@@ -1,0 +1,27 @@
+{
+  "name": "static-engine-converter-frontmatter",
+  "version": "1.0.0",
+  "description": "A converter for static-engine-content.",
+  "main": "index.js",
+  "repository": "erickmerchant/static-engine-converter-frontmatter",
+  "keywords": [
+      "static-engine"
+  ],
+  "author": "Erick Merchant <erickmerchant@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/erickmerchant/static-engine-converter-frontmatter/issues"
+  },
+  "homepage": "https://github.com/erickmerchant/static-engine-converter-frontmatter",
+  "dependencies": {
+    "js": "^3.1.0",
+    "object-assign": "^1.0.0"
+  },
+  "peerDependencies": {
+    "static-engine-content": "^2.0.0"
+  },
+  "devDependencies": {
+    "chai": "^1.9.2",
+    "mocha": "^2.0.0"
+  }
+}
