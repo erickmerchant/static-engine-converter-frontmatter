@@ -1,11 +1,11 @@
 {
   "name": "static-engine-converter-frontmatter",
-  "version": "1.0.0",
+  "version": "2.0.1",
   "description": "A converter for static-engine-content.",
   "main": "index.js",
   "repository": "erickmerchant/static-engine-converter-frontmatter",
   "keywords": [
-      "static-engine"
+    "static-engine"
   ],
   "author": "Erick Merchant <erickmerchant@gmail.com>",
   "license": "MIT",
