@@ -3,7 +3,7 @@ var assert = require('chai').assert;
 
 describe('plugin', function(){
 
-    it('should add certain properties to the page object based on the file name', function(done){
+    it('should read yaml frontmatter from the top of the file surrounded by three dashes', function(done){
 
         frontmatter('test.txt', {
             content: "---\na-property: value 1\nanother-property: value 2\n---\ntest"
