@@ -15,7 +15,7 @@
   "homepage": "https://github.com/erickmerchant/static-engine-converter-frontmatter",
   "dependencies": {
     "js-yaml": "^3.1.0",
-    "object-assign": "^1.0.0"
+    "object-assign": "^2.0.0"
   },
   "peerDependencies": {
     "static-engine-content": "^2.0.0"
