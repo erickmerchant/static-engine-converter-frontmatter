@@ -1,10 +1,11 @@
 var yaml = require('js-yaml');
 var delim = "---\n";
 var assign = require('object-assign');
+var Promise = require('es6-promise').Promise;
 
-module.exports = function () {
+module.exports = function (page) {
 
-    return function (file, page, next) {
+    return new Promise(function(resolve, reject) {
 
         var content = page.content;
 
@@ -19,6 +20,6 @@ module.exports = function () {
 
         page.content = content.join(delim);
 
-        return next(file, page);
-    };
+        resolve(page);
+    });
 };

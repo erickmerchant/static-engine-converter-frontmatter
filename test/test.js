@@ -1,13 +1,14 @@
-var frontmatter = require('../index.js')();
+var frontmatter = require('../index.js');
 var assert = require('chai').assert;
 
 describe('plugin', function(){
 
     it('should read yaml frontmatter from the top of the file surrounded by three dashes', function(done){
 
-        frontmatter('test.txt', {
+        frontmatter({
+            file: 'test.txt',
             content: "---\na-property: value 1\nanother-property: value 2\n---\ntest"
-        }, function(file, page, next){
+        }).then(function(page){
 
             assert.deepEqual(page.content, "test");
 

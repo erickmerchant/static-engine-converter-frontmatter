@@ -14,6 +14,7 @@
   },
   "homepage": "https://github.com/erickmerchant/static-engine-converter-frontmatter",
   "dependencies": {
+    "es6-promise": "^2.0.0",
     "js-yaml": "^3.1.0",
     "object-assign": "^2.0.0"
   },
