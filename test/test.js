@@ -8,7 +8,7 @@ describe('plugin', function(){
         frontmatter({
             file: 'test.txt',
             content: "---\na-property: value 1\nanother-property: value 2\n---\ntest"
-        }).then(function(page){
+        }, function(err, page){
 
             assert.deepEqual(page.content, "test");
 
