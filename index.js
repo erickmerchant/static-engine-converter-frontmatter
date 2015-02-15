@@ -16,17 +16,28 @@ module.exports = function(converter) {
 
         var content = page.content;
 
-        content = content.split(delim);
+        var frontmatter;
 
-        if(content.length > 1) {
+        try {
 
-            page = assign(page, converter(content[1]));
+            content = content.split(delim);
 
-            content = content.slice(2);
+            if(content.length > 1) {
+
+                frontmatter = converter(content[1]);
+
+                page = assign(page, frontmatter);
+
+                content = content.slice(2);
+            }
+
+            page.content = content.join(delim);
+
+            done(null, page);
         }
+        catch(e) {
 
-        page.content = content.join(delim);
-
-        done(null, page);
+            done(e);
+        }
     };
 };
