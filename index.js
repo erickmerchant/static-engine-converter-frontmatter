@@ -12,28 +12,31 @@ module.exports = function(converter) {
         }
     }
 
-    return function (page, done) {
-
-        var content = page.content;
-
-        var frontmatter;
+    return function (pages, done) {
 
         try {
 
-            content = content.split(delim);
+            pages.forEach(function(page){
 
-            if(content.length > 1) {
+                var content = page.content;
 
-                frontmatter = converter(content[1]);
+                var frontmatter;
 
-                page = assign(page, frontmatter);
+                content = content.split(delim);
 
-                content = content.slice(2);
-            }
+                if(content.length > 1) {
 
-            page.content = content.join(delim);
+                    frontmatter = converter(content[1]);
 
-            done(null, page);
+                    page = assign(page, frontmatter);
+
+                    content = content.slice(2);
+                }
+
+                page.content = content.join(delim);
+            });
+
+            done(null, pages);
         }
         catch(e) {
 
