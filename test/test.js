@@ -1,5 +1,5 @@
 var frontmatter = require('../index.js')();
-var assert = require('chai').assert;
+var assert = require('assert');
 
 describe('plugin', function(){
 
