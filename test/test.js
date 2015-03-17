@@ -1,13 +1,13 @@
-var frontmatter = require('../index.js')();
+var frontmatter = require('../index.js')(JSON.parse);
 var assert = require('assert');
 
 describe('plugin', function(){
 
-    it('should read yaml frontmatter from the top of the file surrounded by three dashes', function(done){
+    it('should read frontmatter from the top of the file surrounded by three dashes', function(done){
 
         frontmatter([{
             file: 'test.txt',
-            content: "---\na-property: value 1\nanother-property: value 2\n---\ntest"
+            content: '---\n{ "a-property": "value 1", "another-property": "value 2" }\n---\ntest'
         }], function(err, pages){
 
             try
