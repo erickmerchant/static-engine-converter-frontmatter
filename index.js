@@ -1,7 +1,8 @@
-var delim = "---\n";
 var assign = require('object-assign');
 
-module.exports = function(converter) {
+module.exports = function(converter, delim) {
+
+    delim = delim || '---';
 
     return function (pages, done) {
 
@@ -13,7 +14,10 @@ module.exports = function(converter) {
 
                 var frontmatter;
 
-                content = content.split(delim);
+                content = content.split(delim).map(function(v){
+
+                    return v.trim();
+                });
 
                 if(content.length > 1) {
 
