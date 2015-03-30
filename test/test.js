@@ -10,8 +10,12 @@ describe('plugin', function(){
             content: '---\n{ "a-property": "value 1", "another-property": "value 2" }\n---\ntest'
         }], function(err, pages){
 
-            try
-            {
+            if(err) {
+
+                done(err);
+            }
+            else {
+
                 assert.deepEqual(pages[0], {
 
                     content: "test",
@@ -24,10 +28,6 @@ describe('plugin', function(){
                 });
 
                 done();
-            }
-            catch(err) {
-
-                done(err);
             }
         });
     });
