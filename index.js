@@ -1,41 +1,33 @@
-var assign = require('object-assign');
+var assign = require('object-assign')
 
-module.exports = function(converter, delim) {
+module.exports = function (converter, delim) {
+  delim = delim || '---'
 
-    delim = delim || '---';
+  return function (pages, done) {
+    try {
+      pages.forEach(function (page) {
+        var content = page.content
 
-    return function (pages, done) {
+        var frontmatter
 
-        try {
+        content = content.split(delim).map(function (v) {
+          return v.trim()
+        })
 
-            pages.forEach(function(page){
+        if (content.length > 1) {
+          frontmatter = converter(content[1])
 
-                var content = page.content;
+          page = assign(page, frontmatter)
 
-                var frontmatter;
-
-                content = content.split(delim).map(function(v){
-
-                    return v.trim();
-                });
-
-                if(content.length > 1) {
-
-                    frontmatter = converter(content[1]);
-
-                    page = assign(page, frontmatter);
-
-                    content = content.slice(2);
-                }
-
-                page.content = content.join(delim);
-            });
-
-            done(null, pages);
+          content = content.slice(2)
         }
-        catch(e) {
 
-            done(e);
-        }
-    };
-};
+        page.content = content.join(delim)
+      })
+
+      done(null, pages)
+    } catch(e) {
+      done(e)
+    }
+  }
+}

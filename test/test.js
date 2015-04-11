@@ -1,34 +1,29 @@
-var frontmatter = require('../index.js')(JSON.parse);
-var assert = require('assert');
+var frontmatter = require('../index.js')(JSON.parse)
+var assert = require('assert')
+var describe = require('mocha').describe
+var it = require('mocha').it
 
-describe('plugin', function(){
+describe('plugin', function () {
+  it('should read frontmatter from the top of the file surrounded by three dashes', function (done) {
+    frontmatter([{
+      file: 'test.txt',
+      content: '---\n{ "a-property": "value 1", "another-property": "value 2" }\n---\ntest'
+    }], function (err, pages) {
+      if (err) {
+        done(err)
+      } else {
+        assert.deepEqual(pages[0], {
+          content: 'test',
 
-    it('should read frontmatter from the top of the file surrounded by three dashes', function(done){
+          file: 'test.txt',
 
-        frontmatter([{
-            file: 'test.txt',
-            content: '---\n{ "a-property": "value 1", "another-property": "value 2" }\n---\ntest'
-        }], function(err, pages){
+          'a-property': 'value 1',
 
-            if(err) {
+          'another-property': 'value 2'
+        })
 
-                done(err);
-            }
-            else {
-
-                assert.deepEqual(pages[0], {
-
-                    content: "test",
-
-                    file: "test.txt",
-
-                    'a-property': 'value 1',
-
-                    'another-property': 'value 2'
-                });
-
-                done();
-            }
-        });
-    });
-});
+        done()
+      }
+    })
+  })
+})
