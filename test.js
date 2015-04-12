@@ -1,4 +1,4 @@
-var frontmatter = require('../index.js')(JSON.parse)
+var frontmatter = require('./index.js')(JSON.parse)
 var assert = require('assert')
 var describe = require('mocha').describe
 var it = require('mocha').it
