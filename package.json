@@ -1,6 +1,6 @@
 {
   "name": "static-engine-frontmatter",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Plugin for static-engine. Extracts frontmatter from the content property of all objects in the collection.",
   "main": "index.js",
   "repository": "erickmerchant/static-engine-frontmatter",
