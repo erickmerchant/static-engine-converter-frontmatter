@@ -1,4 +1,4 @@
-var assign = require('object-assign')
+var assign = require('lodash.assign')
 
 module.exports = function (converter, delim) {
   delim = delim || '---\n'
