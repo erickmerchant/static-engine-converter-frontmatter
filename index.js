@@ -28,7 +28,7 @@ module.exports = function (converter, delim) {
       })
 
       done(null, pages)
-    } catch(e) {
+    } catch (e) {
       done(e)
     }
   }
