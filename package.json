@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/erickmerchant/static-engine-frontmatter",
   "dependencies": {
-    "lodash.assign": "^3.2.0"
+    "lodash.assign": "^4.0.0"
   },
   "devDependencies": {
     "standard": "^5.0.0",
