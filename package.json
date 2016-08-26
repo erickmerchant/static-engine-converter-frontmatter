@@ -17,7 +17,7 @@
     "lodash.assign": "^4.0.0"
   },
   "devDependencies": {
-    "standard": "^7.0.0",
+    "standard": "^8.0.0",
     "tap": "^6.3.0"
   },
   "scripts": {
