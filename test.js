@@ -1,7 +1,7 @@
 var plugin = require('./index.js')
-var tap = require('tap')
+var test = require('tape')
 
-tap.test('should read frontmatter from the top of the file surrounded by three dashes', function (t) {
+test('should read frontmatter from the top of the file surrounded by three dashes', function (t) {
   var frontmatter = plugin(JSON.parse)
 
   frontmatter([{
@@ -23,7 +23,7 @@ tap.test('should read frontmatter from the top of the file surrounded by three d
   })
 })
 
-tap.test('should read frontmatter from the top of the file surrounded by three dashes', function (t) {
+test('should read frontmatter from the top of the file surrounded by three dashes', function (t) {
   var frontmatter = plugin(function () {
     throw new Error('parse error!')
   })
@@ -38,7 +38,7 @@ tap.test('should read frontmatter from the top of the file surrounded by three d
   })
 })
 
-tap.test('should only read frontmatter', function (t) {
+test('should only read frontmatter', function (t) {
   var frontmatter = plugin(JSON.parse)
   var promises = []
 
